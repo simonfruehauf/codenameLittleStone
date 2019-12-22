@@ -129,14 +129,14 @@ public class PlayerController : MonoBehaviour
                 }
                 else
                 {
-                    rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * currentSpeed, 0));
+                    rb.AddForce(new Vector2(Input.GetAxis("Horizontal") * currentSpeed*Time.deltaTime, 0));
                     if (Input.GetAxis("Horizontal") > 0 && grounded)
                     {
-                        rb.AddTorque(-walkRotationSpeed);
+                        rb.AddTorque(-walkRotationSpeed * Time.deltaTime);
                     }
                     else if (Input.GetAxis("Horizontal") < 0 && grounded)
                     {
-                        rb.AddTorque(walkRotationSpeed);
+                        rb.AddTorque(walkRotationSpeed * Time.deltaTime);
                     }
                     else
                     {

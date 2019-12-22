@@ -16460,7 +16460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentSpeed: 0
-  speed: 5
+  speed: 300
   jump: 8
   airSpeed: 1.2
   dashSpeed: {x: 0, y: 0}
@@ -16472,7 +16472,7 @@ MonoBehaviour:
   dashTimer: 0
   maxDashTimer: 0.25
   hoverRotationSpeed: 5
-  walkRotationSpeed: 5
+  walkRotationSpeed: 300
   rayOrigin: {fileID: 1834577893}
   rayCheckDistance: 0.15
   rayCheckSize: 0.25
