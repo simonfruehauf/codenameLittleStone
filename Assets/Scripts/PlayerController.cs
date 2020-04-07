@@ -196,7 +196,7 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x + rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x - rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
-
+        
         if (hit.collider == null && hitLeft.collider == null && hitRight.collider == null)
         {
             if (!ungrounding && grounded)
@@ -280,7 +280,6 @@ public class PlayerController : MonoBehaviour
         justJumped = true;
         yield return new WaitForSeconds(dropOffTime);
         justJumped = false;
-        
     }
 }
 
