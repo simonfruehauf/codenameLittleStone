@@ -16464,11 +16464,12 @@ MonoBehaviour:
   jump: 8
   airSpeed: 1.2
   dashSpeed: {x: 0, y: 0}
-  dashStrength: 18
+  dashStrength: 16
   maxDashes: 2
   dashes: 2
+  afterDashSlowdown: 1.2
   dashTime: 0
-  maxDashTime: 0.5
+  maxDashTime: 0.6
   dashTimer: 0
   maxDashTimer: 0.25
   hoverRotationSpeed: 5
@@ -16476,7 +16477,8 @@ MonoBehaviour:
   rayOrigin: {fileID: 1834577893}
   rayCheckDistance: 0.15
   rayCheckSize: 0.25
-  dropOffTime: 0.2
+  dropOffTime: 0.12
+  respawnObject: {fileID: 0}
   LookAtScript: {fileID: 575529807}
   velocity: {x: 0, y: 0}
   grounded: 0
