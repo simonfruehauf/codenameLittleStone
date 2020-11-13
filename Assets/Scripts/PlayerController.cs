@@ -181,6 +181,9 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        Debug.DrawRay(new Vector2(rayOrigin.transform.position.x - rayCheckSize, rayOrigin.transform.position.y), Vector2.down * rayCheckDistance);
+        Debug.DrawRay(new Vector2(rayOrigin.transform.position.x + rayCheckSize, rayOrigin.transform.position.y), Vector2.down * rayCheckDistance);
+        Debug.DrawRay(new Vector2(rayOrigin.transform.position.x, rayOrigin.transform.position.y), Vector2.down * rayCheckDistance);
 
     }
 
@@ -192,24 +195,51 @@ public class PlayerController : MonoBehaviour
     }
     void Grounded()
     {
+        RaycastHit2D[] hits;
+        hits = Physics2D.RaycastAll(new Vector2(rayOrigin.transform.position.x, rayOrigin.transform.position.y), Vector2.down, rayCheckDistance);
+        RaycastHit2D[] hitsleft;
+        hitsleft = Physics2D.RaycastAll(new Vector2(rayOrigin.transform.position.x + rayCheckSize, rayOrigin.transform.position.y), Vector2.down, rayCheckDistance);
+        RaycastHit2D[] hitsright;
+        hitsright = Physics2D.RaycastAll(new Vector2(rayOrigin.transform.position.x - rayCheckSize, rayOrigin.transform.position.y), Vector2.down, rayCheckDistance);
+        bool noColl = true;
 
-        RaycastHit2D hit = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
-        RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x + rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
-        RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x - rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
-
-        if (hit.collider == null && hitLeft.collider == null && hitRight.collider == null)
+        foreach (RaycastHit2D raycastHit2D in hits)
+        {
+            if (raycastHit2D.collider != null && raycastHit2D.collider != GetComponent<PolygonCollider2D>())
+            {
+                noColl = false;
+            }
+        }
+        foreach (RaycastHit2D raycastHit2D in hitsleft)
+        {
+            if (raycastHit2D.collider != null && raycastHit2D.collider != GetComponent<PolygonCollider2D>())
+            {
+                noColl = false;
+            }
+        }
+        foreach (RaycastHit2D raycastHit2D in hitsright)
+        {
+            if (raycastHit2D.collider != null && raycastHit2D.collider != GetComponent<PolygonCollider2D>())
+            {
+                noColl = false;
+            }
+        }
+        if (noColl) //we didn't hit anything that isn't player
         {
             if (!ungrounding && grounded)
             {
                 StartCoroutine(UnGround());
+                Debug.Log("unground");
             }
-
         }
         else
         {
-            grounded = true;
-            dashes = maxDashes;
-
+            if (!ungrounding)
+            {
+                grounded = true;
+                dashes = maxDashes;
+                Debug.Log("ground");
+            }
         }
     }
     void MakeKinematic(bool boo)
