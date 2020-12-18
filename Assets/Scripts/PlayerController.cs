@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     float respawnTimerCounter;
     public GameObject respawnObject;
     bool canRespawn = true;
+    public bool respawning = false;
+    float deathTime = 0.5f;
 
 
     public LookatDirection LookAtScript;
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
     bool justJumped = false;
     public bool showArrow;
     public bool started;
+    private bool hasControl = true;
     PauseMenu PauseMenuScript;
     void Start()
     {
@@ -77,22 +80,10 @@ public class PlayerController : MonoBehaviour
     {
         if (!PauseMenuScript.pause)
         {
-            if (started)
+            if (started && hasControl)
             {
-                switch (dashes)
-                {
-                    case 2:
-                        GetComponent<SpriteRenderer>().sprite = spriteArray[2];
-                        break;
-                    case 1:
-                        GetComponent<SpriteRenderer>().sprite = spriteArray[1];
-                        break;
-                    case 0:
-                        GetComponent<SpriteRenderer>().sprite = spriteArray[0];
-                        break;
-                    default:
-                        break;
-                }
+                GetComponent<SpriteRenderer>().sprite = spriteArray[dashes];
+
                 if (applyingDashSpeed)
                 {
                     dashTimer += Time.deltaTime;
@@ -206,8 +197,6 @@ public class PlayerController : MonoBehaviour
     }
     void Grounded()
     {
-
-
         RaycastHit2D hit = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
         RaycastHit2D hitLeft = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x + rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
         RaycastHit2D hitRight = Physics2D.Raycast(new Vector2(rayOrigin.transform.position.x - rayCheckSize, rayOrigin.transform.position.y), Vector2.down, GetComponentInParent<BoxCollider2D>().bounds.extents.y + rayCheckDistance);
@@ -222,9 +211,12 @@ public class PlayerController : MonoBehaviour
         else
         {
             grounded = true;
-            dashes = maxDashes;
+            if (hasControl)
+            {
+                dashes = maxDashes;
+            }
 
-           
+
         }
         if ((hit.collider != null && hitLeft.collider != null) || (hitLeft.collider != null && hitRight.collider != null) || (hit.collider != null && hitRight.collider != null))  // ((a && b) || (b && c) || (a && c))
         {
@@ -303,14 +295,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Die()
-    {
-        //to implement
-        Debug.Log("Should die");
-        //temporary:
-
+    public IEnumerator Die()
+    {       
+        //play soundbyte
+        //wait for x seconds, respawn
+        respawning = true;
+        hasControl = false;
+        GetComponent<SpriteRenderer>().sprite = spriteArray[0];
+        yield return new WaitForSeconds(deathTime);
+        GetComponent<SpriteRenderer>().sprite = spriteArray[0];
+        hasControl = true;
+        rb.velocity = Vector2.zero;
         rb.transform.position = respawnObject.transform.position;
         rb.velocity = Vector2.zero;
+        respawning = false;
+
     }
 
     IEnumerator UnGround()

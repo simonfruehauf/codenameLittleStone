@@ -5,11 +5,15 @@ using UnityEngine;
 public class DashModifier : MonoBehaviour
 {
     public int dashModifier;
-    public float disableTime;
     bool disabled = false;
     public SpriteRenderer sprite;
+    private float disableTime;
+    void Start()
+    {
+        disableTime = GameObject.Find("Player").GetComponent<PlayerController>().initialWait;
+    }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!disabled)
         {
