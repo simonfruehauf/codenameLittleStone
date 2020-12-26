@@ -12419,6 +12419,7 @@ GameObject:
   - component: {fileID: 1513967172}
   - component: {fileID: 1513967174}
   - component: {fileID: 1513967173}
+  - component: {fileID: 1513967175}
   m_Layer: 0
   m_Name: Backdrop
   m_TagString: Untagged
@@ -19363,7 +19364,7 @@ Tilemap:
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
-  m_Color: {r: 0.9659225, g: 1, b: 0.8632076, a: 0.15294118}
+  m_Color: {r: 0.9659225, g: 1, b: 0.879, a: 0.23921569}
   m_Origin: {x: -35, y: -25, z: 0}
   m_Size: {x: 70, y: 39, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
@@ -19385,6 +19386,20 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1513967175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513967171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73a2ec11ce19fd0458c14e50d719aba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 0
 --- !u!1 &1548632254
 GameObject:
   m_ObjectHideFlags: 0
@@ -19499,8 +19514,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentSpeed: 0
   speed: 300
-  jump: 8
-  airSpeed: 1.2
   dashSpeed: {x: 0, y: 0}
   dashStrength: 16
   maxDashes: 2
@@ -19512,12 +19525,14 @@ MonoBehaviour:
   maxDashTimer: 0.25
   hoverRotationSpeed: 2
   walkRotationSpeed: 300
-  rayOrigin: {fileID: 1834577893}
-  rayCheckDistance: 0.15
-  rayCheckSize: 0.25
-  dropOffTime: 0.12
   respawnObject: {fileID: 0}
   respawning: 0
+  dropOffTime: 0.12
+  rayOrigin: {fileID: 1834577893}
+  rayCheckDistance: 0.16
+  rayCheckSize: 0.25
+  jump: 8
+  airSpeed: 1.2
   LookAtScript: {fileID: 575529807}
   velocity: {x: 0, y: 0}
   grounded: 0
@@ -19544,7 +19559,7 @@ Rigidbody2D:
   m_Mass: 0.661945
   m_LinearDrag: 2
   m_AngularDrag: 5
-  m_GravityScale: 2
+  m_GravityScale: 2.5
   m_Material: {fileID: 6200000, guid: 2982d38b81d4be9449d16fd492ca84f3, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1

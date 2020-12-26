@@ -7,8 +7,6 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Values")]
     public float currentSpeed;
     public float speed;
-    public float jump;
-    public float airSpeed;
     [HideInInspector] public Vector2 dashSpeed;
     public float dashStrength;
     public int maxDashes;
@@ -25,20 +23,23 @@ public class PlayerController : MonoBehaviour
     public float hoverRotationSpeed;
     public float walkRotationSpeed;
 
-    [Header("Other")]
-    public GameObject rayOrigin;
-    public float rayCheckDistance;
-    public float rayCheckSize;
-    Rigidbody2D rb;
-    public float dropOffTime = 0.2f;
 
     [Header("Respawning")]
-    float respawnTimer = 2.0f;
+    float respawnTimer = 5.0f;
     float respawnTimerCounter;
     public GameObject respawnObject;
     bool canRespawn = true;
     public bool respawning = false;
     float deathTime = 0.5f;
+
+    [Header("Jump Behaviour")]
+    public float dropOffTime = 0.2f;
+    public GameObject rayOrigin;
+    public float rayCheckDistance;
+    public float rayCheckSize;
+    Rigidbody2D rb;
+    public float jump;
+    public float airSpeed;
 
 
     public LookatDirection LookAtScript;
@@ -218,7 +219,7 @@ public class PlayerController : MonoBehaviour
 
 
         }
-        if ((hit.collider != null && hitLeft.collider != null) || (hitLeft.collider != null && hitRight.collider != null) || (hit.collider != null && hitRight.collider != null))  // ((a && b) || (b && c) || (a && c))
+        if ((hit.collider != null && hitLeft.collider != null) && hitRight.collider != null)
         {
             respawnTimerCounter += 0.1f;
             if (respawnTimerCounter >= respawnTimer)
