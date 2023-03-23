@@ -87,7 +87,7 @@ TextureImporter:
       213: 5335234481208863317
     second: deco_27
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -107,6 +107,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -116,8 +118,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -138,9 +140,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -767,6 +773,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      deco_27: 5335234481208863317
+      deco_24: 5908264996646716967
+      deco_25: -569192585374002247
+      deco_8: -2867926194491759627
+      deco_18: 3009776414243907210
+      deco_17: -2400851548451668624
+      deco_20: -2440323561347109998
+      deco_19: -8666240637142408277
+      deco_5: -8915229910982457068
+      deco_16: -6642977869375479418
+      deco_7: -3707337709383864825
+      deco_15: -314994709069516546
+      deco_4: -6956232412470105342
+      deco_12: -4208441367614402886
+      deco_0: 7567667463969753817
+      deco_14: 8507551577113847453
+      deco_21: -4496370261644269256
+      deco_26: 3926750440090721959
+      deco_13: -94377074752069212
+      deco_22: -786883341488322325
+      deco_3: 2699819199210460450
+      deco_2: -226474587388606735
+      deco_10: 1287334107775463294
+      deco_11: 5034870625993195818
+      deco_9: 6310075732596040423
+      deco_6: -610831215484108246
+      deco_1: -5485482186839263946
+      deco_23: -5997677928069367173
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -156,7 +156,7 @@ TextureImporter:
       213: 4217886090049368852
     second: floor tiles_50
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -176,6 +176,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -185,8 +187,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -207,9 +209,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1319,6 +1325,58 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      floor tiles_18: -1040110127967500066
+      floor tiles_4: -1066554823854986402
+      floor tiles_46: -7480568896530945205
+      floor tiles_0: -2305016751872235885
+      floor tiles_10: -3208224113818537521
+      floor tiles_39: 7983857186757225368
+      floor tiles_2: -4711478012943090498
+      floor tiles_50: 4217886090049368852
+      floor tiles_36: 7430620296321682813
+      floor tiles_19: -1731701089136192466
+      floor tiles_7: -4561286141899273314
+      floor tiles_28: -602814906590359530
+      floor tiles_24: 2600489744273206280
+      floor tiles_34: 4896101505697407771
+      floor tiles_15: 2647353281806810569
+      floor tiles_17: 8983055027468845479
+      floor tiles_32: 237613254947959553
+      floor tiles_6: -230992897737034965
+      floor tiles_43: -1051750297595531772
+      floor tiles_20: -1723207706121203336
+      floor tiles_42: 2502970879406275733
+      floor tiles_16: 801546607036058036
+      floor tiles_11: -2274443457504615504
+      floor tiles_26: -3339981829906114129
+      floor tiles_40: 479794460420410249
+      floor tiles_41: -8027976879906077977
+      floor tiles_8: -7946243724488836202
+      floor tiles_25: -5744066986844831930
+      floor tiles_49: 2695005615218729661
+      floor tiles_1: -3374166947988826344
+      floor tiles_27: -2884543326863521322
+      floor tiles_5: -5930176048653690316
+      floor tiles_23: 684392653817427572
+      floor tiles_22: 2386487934175595330
+      floor tiles_21: -5853676289944381542
+      floor tiles_47: -8775710847152812711
+      floor tiles_48: 6117782211901408293
+      floor tiles_13: 479271116664409806
+      floor tiles_31: 6873476733474332483
+      floor tiles_3: 6834484772790829953
+      floor tiles_12: 382858250326490435
+      floor tiles_45: -7352095814720399131
+      floor tiles_35: 2827171153731875472
+      floor tiles_29: 740597574028419722
+      floor tiles_9: -8277537555112704119
+      floor tiles_37: 3030827076356864956
+      floor tiles_30: -4201171857327071703
+      floor tiles_44: -5937783467883529287
+      floor tiles_38: 6154764852952337680
+      floor tiles_14: 4756688481308749900
+      floor tiles_33: 6527101797334766886
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
